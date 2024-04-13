@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dedfus14xr6e0"
+path="res://.godot/imported/Skeleton_Arrow_Broken.obj-c8a415a27b1c14bc6719c2a126c1e08a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Skeleton_Arrow_Broken.obj-c8a415a27b1c14bc6719c2a126c1e08a.mesh"]
+
+source_file="res://assets/obj/Skeleton_Arrow_Broken.obj"
+dest_files=["res://.godot/imported/Skeleton_Arrow_Broken.obj-c8a415a27b1c14bc6719c2a126c1e08a.mesh", "res://.godot/imported/Skeleton_Arrow_Broken.obj-c8a415a27b1c14bc6719c2a126c1e08a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
