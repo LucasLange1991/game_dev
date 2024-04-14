@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://b607e7x4w8hgt"]
+
+[ext_resource type="Texture2D" uid="uid://prglgst8dmn7" path="res://skele_normal.png" id="1_3e4dy"]
+[ext_resource type="Script" path="res://Sprite2D.gd" id="2_wfabl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8d1uu"]
+radius = 9.0
+height = 18.0
+
+[sub_resource type="Animation" id="Animation_uxmhg"]
+resource_name = "walk"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [104, 105, 106, 107, 108, 109, 110, 111, 112]
+}
+
+[sub_resource type="Animation" id="Animation_w0yub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [104]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_li3no"]
+_data = {
+"RESET": SubResource("Animation_w0yub"),
+"walk": SubResource("Animation_uxmhg")
+}
+
+[node name="world" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_3e4dy")
+hframes = 13
+vframes = 21
+frame = 104
+script = ExtResource("2_wfabl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 17)
+shape = SubResource("CapsuleShape2D_8d1uu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_li3no")
+}
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
